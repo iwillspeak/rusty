@@ -1,0 +1,9 @@
+[package]
+
+name = "hello_world"
+version = "0.0.1"
+authors = ["Will Speak <lithiumflame@gmail.com>"]
+
+
+[dependencies]
+    term = "0.1.12"
