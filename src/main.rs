@@ -27,6 +27,8 @@ fn div_by_fifteen(num: u64) -> bool {
 mod test {
 
     use super::div_by_three;
+    use super::div_by_five;
+    use super::div_by_fifteen;
 
     #[test]
     fn test_div_by_three_returns_false() {
@@ -43,6 +45,42 @@ mod test {
         
         for i in 1..300 {
             assert_eq!(true, div_by_three(3 * i));
+        }
+    }
+
+    #[test]
+    fn test_div_by_five_returns_false() {
+        
+        assert_eq!(false, div_by_five(3));
+        assert_eq!(false, div_by_five(4));
+        assert_eq!(false, div_by_five(1));
+        assert_eq!(false, div_by_five(11));
+        assert_eq!(false, div_by_five(19));
+    }
+
+    #[test]
+    fn test_div_by_five_returns_true() {
+        
+        for i in 1..100 {
+            assert_eq!(true, div_by_five(5 * i));
+        }
+    }
+
+    #[test]
+    fn test_div_by_fifteen_returns_false() {
+
+        assert_eq!(false, div_by_fifteen(5));
+        assert_eq!(false, div_by_fifteen(3));
+
+        assert_eq!(false, div_by_fifteen(14));
+        assert_eq!(false, div_by_fifteen(31));
+    }
+
+    #[test]
+    fn test_div_by_fifteen_returns_true() {
+        
+        for i in 1..300 {
+            assert_eq!(true, div_by_fifteen(15 * i));
         }
     }
 }
