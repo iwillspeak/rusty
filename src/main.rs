@@ -1,6 +1,18 @@
+#[cfg(not(test))]
 fn main() {
+    use std::sync::mpsc;
+    use std::thread;
 
-    for i in 1..100 {
+    let (tx, rx) = mpsc::channel();
+
+    let _thr = thread::scoped(move || {
+        for i in 1u64..100u64 {
+            tx.send(i).unwrap();
+        };
+    });
+
+    for _ in 1..100 {
+        let i = rx.recv().unwrap();;
         println!(
             "{}",
             if div_by_fifteen(i) { "FizzBuzz".to_string() }
@@ -9,6 +21,7 @@ fn main() {
             else { i.to_string() });
     }
 
+    println!("Done!");
 }
 
 fn div_by_three(num: u64) -> bool {
