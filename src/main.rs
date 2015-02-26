@@ -7,12 +7,12 @@ fn main() {
 
     let _thr = thread::scoped(move || {
         for i in 1u64..100u64 {
-            tx.send(i).unwrap();
+            tx.send(Some(i)).unwrap();
         };
+        tx.send(None).unwrap();
     });
 
-    for _ in 1..100 {
-        let i = rx.recv().unwrap();;
+    while let Some(i) = rx.recv().unwrap() {
         println!(
             "{}",
             if div_by_fifteen(i) { "FizzBuzz".to_string() }
