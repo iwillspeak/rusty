@@ -4,6 +4,15 @@ name = "rusty"
 version = "0.0.1"
 authors = ["Will Speak <lithiumflame@gmail.com>"]
 
+description = "Experimentation with Rust, tokenisation and parsing"
+
+homepage = "http://github.com/iwillspeak/rusty"
+repository = "http://github.com/iwillspeak/rusty"
+
+readme = "README.md"
+license = "MIT"
+
 [dependencies]
     docopt = "*"
     rustc-serialize = "*"
+    rustlex = "*"
